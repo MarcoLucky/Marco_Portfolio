@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Marco C. Lunas - Portfolio</title>
+    <link rel="icon" href="images/picture.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body class="home-page">
+    <!-- Header with Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-wrapper">
+                <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#profile" class="nav-link active">Profile</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Me</a></li>
+                </ul>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <span class="theme-icon moon-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                    <span class="theme-icon sun-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="M4.93 4.93l1.41 1.41"></path>
+                            <path d="M17.66 17.66l1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="M4.93 19.07l1.41-1.41"></path>
+                            <path d="M17.66 6.34l1.41-1.41"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Profile Section -->
+        <section id="profile" class="profile-section active">
+            <div class="profile-container">
+                <!-- Profile Image -->
+                <div class="profile-image-wrapper">
+                    <img src="images/picture.jpg" alt="Lucky Marco C. Lunas" class="profile-image" loading="eager"
+                         data-default="images/picture.jpg"
+                         data-hover="images/picture_bnw.webp"
+                         data-dark-default="images/dark_mode_picture1.jpg"
+                         data-dark-hover="images/picture3.webp"
+                         data-tooltip="picture_bnw.webp">
+                </div>
+                
+
+                <!-- Profile Info -->
+                <div class="profile-info">
+                    <!-- Name with Badge -->
+                    <div class="name-badge-wrapper">
+                        <h1 class="profile-name">Marco C. Lunas</h1>
+                        <img src="images/check_mark.png" alt="Verified" class="verified-badge">
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="social-links">
+                        <a href="https://github.com/MarcoLucky" class="social-icon" title="GitHub">
+                            <img src="images/Github.png" alt="GitHub" loading="lazy">
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" title="LinkedIn">
+                            <img src="images/linked_in.png" alt="LinkedIn" loading="lazy">
+                        </a>
+                
+                        <a href="https://www.facebook.com/lucky.lunas.3/" class="social-icon" title="Facebook">
+                            <img src="images/facebook.png" alt="Facebook" loading="lazy">
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luckymarcolunas1117@gmail.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Email">
+                            <img src="images/email.png" alt="Email" loading="lazy">
+                        </a>
+                    </div>
+
+                    <!-- Tagline -->
+                    <h2 class="profile-tagline">"Concepts to Code"</h2>
+
+                    <!-- Bio -->
+                    <p class="profile-bio">
+                        An IT student who focused on creating modern and reliable digital solutions that bring innovative ideas into functional, user-focused, and meaningful applications. Dedicated to build scalable systems with clean design, efficient functionality, and real world value through creativity, problem-solving, and continuous learning.
+                    </p>
+
+                    <!-- About Me Button -->
+                    <a href="#contact" class="resume-btn">About Me</a>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="section-container experience-container">
+                <div class="experience-header">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <h2 id="sectionTitle">Experience</h2>
+                        <!-- Section switch dropdown (icon only) -->
+                        <div class="section-switch">
+                            <button id="sectionSwitchBtn" class="switch-button" aria-expanded="false" aria-haspopup="true" aria-controls="sectionSwitchMenu" aria-label="Switch section">
+                                <svg class="switch-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <ul id="sectionSwitchMenu" class="switch-menu hidden" role="menu">
+                                <li class="switch-option" role="menuitem" data-target="experience">Experience</li>
+                               
+                                <li class="switch-option" role="menuitem" data-target="education">Education</li>
+                                 <li class="switch-option" role="menuitem" data-target="events">Events</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p id="sectionDescription">A collection of the experiences and milestones that have shaped my growth, strengthened my technical abilities, and deepened my passion for technology.</p>
+                </div>
+
+                <div class="experience-items">
+                    <div class="experience-item">
+                        <p class="experience-date">June 2024 - November 2024</p>
+                        <div class="experience-details">
+                            <h3 class="experience-role">Student Assistant <span>( University Cashier Office )</span></h3>
+                                <div class="company-block">
+                                    <img src="images/urs.png" alt="University of Rizal System logo" class="experience-logo" loading="lazy">
+                                    <div class="company-and-meta">
+                                        <p class="experience-company">University of Rizal System</p>
+                                        <div class="experience-meta-row">
+                                            <p class="experience-location">Binangonan, Rizal</p>
+                                            <a href="experience/experience-cashier.html" class="experience-action">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <p class="experience-date">January 2023 - May 2023</p>
+                        <div class="experience-details">
+                            <h3 class="experience-role">Work Immersion</h3>
+                                <div class="company-block">
+                                    <img src="images/capellan.png" alt="Capellan Institute of Technology logo" class="experience-logo" loading="lazy">
+                                    <div class="company-and-meta">
+                                        <p class="experience-company">Capellan Institute of Technology</p>
+                                        <div class="experience-meta-row">
+                                            <p class="experience-location">Pasig, City</p>
+                                            <a href="experience/work_immersion.html" class="experience-action">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events view (hidden by default) -->
+                <div class="events-items hidden">
+                    <div class="experience-item">
+                        <p class="experience-date">June 2025</p>
+                        <div class="experience-details">
+                            <h3 class="experience-role">Startup QC Student Competition</h3>
+                            <div class="company-block">
+                                <img src="images/Events/Startup_QC/1.jfif" alt="Startup QC event" class="event-badge" loading="lazy">
+                                <div class="company-and-meta">
+                                    <p class="experience-company">Startup QC</p>
+                                    <div class="experience-meta-row">
+                                        <p class="experience-location">Quezon City</p>
+                                        <a href="my_events/startup-qc.html" class="experience-action">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <p class="experience-date">July 2025</p>
+                        <div class="experience-details">
+                            <h3 class="experience-role">Egov Hackathon</h3>
+                            <div class="company-block">
+                                <img src="images/Events/Egov_Hackathon/1.jfif" alt="Egov Hackathon event" class="event-badge" loading="lazy">
+                                <div class="company-and-meta">
+                                    <p class="experience-company">eGov Ph & DICT</p>
+                                    <div class="experience-meta-row">
+                                        <p class="experience-location">Taguig City</p>
+                                        <a href="my_events/egov-hackathon.html" class="experience-action">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education view (hidden by default) -->
+                <div class="education-items hidden">
+                    <div class="education-item">
+                        <p class="education-date">2023 - PRESENT</p>
+                        <div class="education-details">
+                            <h3 class="education-degree">Bachelor of Science in Information Technology</h3>
+                            <div class="company-block">
+                                <img src="images/urs.png" alt="University of Rizal System logo" class="experience-logo" loading="lazy">
+                                <div class="company-and-meta">
+                                    <p class="education-school">University of Rizal System</p>
+                                    <p class="education-location">Binangonan, Rizal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <p class="education-date">2020 - 2023</p>
+                        <div class="education-details">
+                            <h3 class="education-degree">Technical Vocational and Livelihood (ICT)</h3>
+                            <div class="company-block">
+                                <img src="images/san_lorenzo.png" alt="San Lorenzo Ruiz Senior High School logo" class="experience-logo" loading="lazy">
+                                <div class="company-and-meta">
+                                    <p class="education-school">San Lorenzo Ruiz Senior High School</p>
+                                    <p class="education-location">Pasig, City</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="skills-header">
+                    <h2>Skills</h2>
+                    <p>A collection of programming languages, frameworks, tools, and technologies I have learned and applied through academic projects, personal development, and hands-on experience.</p>
+                </div>
+
+                <div class="skills-filter" role="toolbar" aria-label="Filter skills">
+                    <button type="button" class="skill-filter-btn active" data-category="all">All</button>
+                    <button type="button" class="skill-filter-btn" data-category="programming-languages">Programming Languages</button>
+                    <button type="button" class="skill-filter-btn" data-category="artificial-intelligence">Artificial Intelligence</button>
+                    <button type="button" class="skill-filter-btn" data-category="editing-softwares">Editing Softwares</button>
+                    <button type="button" class="skill-filter-btn" data-category="microsoft-applications">Microsoft applications</button>
+                </div>
+
+                <div class="skills-carousel">
+                    <div class="skills-track">
+                        <div class="skills-grid">
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/csharp.png" alt="C#" loading="lazy">
+                                </div>
+                                <p class="skill-name">C# Sharp</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/javascript.png" alt="JavaScript" loading="lazy">
+                                </div>
+                                <p class="skill-name">JavaScript</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/kodular.png" alt="Kodular" loading="lazy">
+                                </div>
+                                <p class="skill-name">Kodular</p>
+                            </div>
+
+                            <div class="skill-item" data-category="editing-softwares">
+                                <div class="skill-icon">
+                                    <img src="images/skills/figma.png" alt="Figma" loading="lazy">
+                                </div>
+                                <p class="skill-name">Figma</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/css.png" alt="CSS" loading="lazy">
+                                </div>
+                                <p class="skill-name">CSS</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/html.png" alt="HTML" loading="lazy">
+                                </div>
+                                <p class="skill-name">HTML</p>
+                            </div>
+
+                            <div class="skill-item" data-category="editing-softwares">
+                                <div class="skill-icon">
+                                    <img src="images/skills/DaVinci_Resolve.png" alt="DaVinci Resolve" loading="lazy">
+                                </div>
+                                <p class="skill-name">DaVinci Resolve</p>
+                            </div>
+
+                            <div class="skill-item" data-category="editing-softwares">
+                                <div class="skill-icon">
+                                    <img src="images/skills/alightmotion.png" alt="Alight Motion" loading="lazy">
+                                </div>
+                                <p class="skill-name">Alight Motion</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/laravel.png" alt="Laravel" loading="lazy">
+                                </div>
+                                <p class="skill-name">Laravel</p>
+                            </div>
+
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/MIT_App_Inventor.png" alt="MIT App Inventor" loading="lazy">
+                                </div>
+                                <p class="skill-name">MIT App Inventor</p>
+                            </div>
+
+                            <div class="skill-item" data-category="editing-softwares">
+                                <div class="skill-icon">
+                                    <img src="images/skills/capcut.png" alt="CapCut" loading="lazy">
+                                </div>
+                                <p class="skill-name">CapCut</p>
+                            </div>
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/php.png" alt="PHP" loading="lazy">
+                                </div>
+                                <p class="skill-name">PHP</p>
+                            </div>
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/php_my_admin.png" alt="phpMyAdmin" loading="lazy">
+                                </div>
+                                <p class="skill-name">phpMyAdmin</p>
+                            </div>
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/mysql.png" alt="MySql" loading="lazy">
+                                </div>
+                                <p class="skill-name">MySql</p>
+                            </div>
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/tailwind.webp" alt="Tailwind CSS" loading="lazy">
+                                </div>
+                                <p class="skill-name">Tailwind CSS</p>
+                            </div>
+                            <div class="skill-item" data-category="programming-languages">
+                                <div class="skill-icon">
+                                    <img src="images/skills/bootstrap.png" alt="Bootstrap" loading="lazy">
+                                </div>
+                                <p class="skill-name">Bootstrap</p>
+                            </div>
+                            <div class="skill-item" data-category="artificial-intelligence">
+                                <div class="skill-icon">
+                                    <img src="images/skills/claude.png" alt="Claude AI" loading="lazy">
+                                </div>
+                                <p class="skill-name">Claude Ai</p>
+                            </div>
+                            <div class="skill-item" data-category="artificial-intelligence">
+                                <div class="skill-icon">
+                                    <img src="images/skills/gpt.webp" alt="GPT AI" loading="lazy">
+                                </div>
+                                <p class="skill-name">GPT Ai</p>
+                            </div>
+                            <div class="skill-item" data-category="artificial-intelligence">
+                                <div class="skill-icon">
+                                    <img src="images/skills/gemini.png" alt="Gemini AI" loading="lazy">
+                                </div>
+                                <p class="skill-name">Gemini Ai</p>
+                            </div>
+                            <div class="skill-item" data-category="microsoft-applications">
+                                <div class="skill-icon">
+                                    <img src="images/skills/excel.webp" alt="Microsoft Excel" loading="lazy">
+                                </div>
+                                <p class="skill-name">Microsoft Excel</p>
+                            </div>
+                            <div class="skill-item" data-category="microsoft-applications">
+                                <div class="skill-icon">
+                                    <img src="images/skills/word.webp" alt="Microsoft Word" loading="lazy">
+                                </div>
+                                <p class="skill-name">Microsoft Word</p>
+                            </div>
+                            <div class="skill-item" data-category="microsoft-applications">
+                                <div class="skill-icon">
+                                    <img src="images/skills/ppt.webp" alt="Microsoft PowerPoint" loading="lazy">
+                                </div>
+                                <p class="skill-name">Microsoft PowerPoint</p>
+                            </div>
+                            <div class="skill-item" data-category="editing-softwares">
+                                <div class="skill-icon">
+                                    <img src="images/skills/canva.png" alt="Canva" loading="lazy">
+                                </div>
+                                <p class="skill-name">Canva</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="projects-header">
+                    <div style="display:flex; align-items:baseline; gap:12px;">
+                        <h2 id="projectsSectionTitle">Projects</h2>
+                        <div class="section-switch">
+                            <button id="projectsSectionSwitchBtn" class="switch-button" aria-expanded="false" aria-haspopup="true" aria-controls="projectsSectionSwitchMenu" aria-label="Switch view">
+                                <svg class="switch-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <ul id="projectsSectionSwitchMenu" class="switch-menu hidden" role="menu">
+                                <li class="switch-option" role="menuitem" data-target="projects">Projects</li>
+                                <li class="switch-option" role="menuitem" data-target="uiux">UI/UX Designs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p id="projectsSectionDescription" class="projects-intro">A collection of academic and personal projects that reflect my experience in designing, developing, and delivering functional web applications.</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/gvote/Home.JPG" alt="G! Vote project screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">Capstone Project 2025-2026</span>
+                            </div>
+                            <h3>G! Vote</h3>
+                            <p>G! Vote is a web-based digital voting system designed to eliminate the manual voting process in University of Rizal System Binangonan.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/laravel.png" alt="Laravel" loading="lazy">
+                                <img src="images/skills/php.png" alt="PHP" loading="lazy">
+                                <img src="images/skills/html.png" alt="HTML" loading="lazy">
+                                <img src="images/skills/css.png" alt="CSS" loading="lazy">
+                                <img src="images/skills/bootstrap.png" alt="Bootstrap" loading="lazy">
+                                <img src="images/skills/tailwind.webp" alt="Tailwind" loading="lazy">
+                                <img src="images/skills/javascript.png" alt="JavaScript" loading="lazy">
+                                <img src="images/skills/php_my_admin.png" alt="phpMyAdmin" loading="lazy">
+                                  <img src="images/skills/mysql.png" alt="MySql" loading="lazy">
+                            </div>
+                            <a class="project-action" href="projects/gvote.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/infotransys/UI.JPG" alt="InfoTranSys project screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">ITE 5 Final Project 2025</span>
+                            </div>
+                            <h3>InfoTranSys</h3>
+                            <p>InfoTranSys is a web-based transaction system designed and developed to improve the long line queues in University Cashier and Dean's Offices.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/php.png" alt="PHP" loading="lazy">
+                                <img src="images/skills/html.png" alt="HTML" loading="lazy">
+                                <img src="images/skills/css.png" alt="CSS" loading="lazy">
+                                <img src="images/skills/bootstrap.png" alt="Bootstrap" loading="lazy">
+                                <img src="images/skills/javascript.png" alt="JavaScript" loading="lazy">
+                                  <img src="images/skills/mysql.png" alt="MySql" loading="lazy">  <img src="images/skills/php_my_admin.png" alt="phpMyAdmin" loading="lazy">
+                            </div>
+                            <a class="project-action" href="projects/infotransys.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/beeble/1.jpg" alt="Beeble project screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">App Development Final Project 2025</span>
+                            </div>
+                            <h3>Beeble</h3>
+                            <p>Beeble is an interactive mobile learning application designed to help children under the age of 10 develop a deeper understanding of nature and environmental conservation through fun, engaging, and educational activities.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/kodular.png" alt="Kodular" loading="lazy">
+                               
+                            </div>
+                            <a class="project-action" href="projects/beeble.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/imreach/1.JPG" alt="ImReach project screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">Website Design Development Final Project 2025</span>
+                            </div>
+                            <h3>ImReach</h3>
+                            <p>imReach is a design project that focuses on creating an engaging and user-friendly static page website for a imreach project.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/html.png" alt="HTML" loading="lazy">
+                                <img src="images/skills/css.png" alt="CSS" loading="lazy">
+                                <img src="images/skills/bootstrap.png" alt="Bootstrap" loading="lazy">
+                            </div>
+                            <a class="project-action" href="projects/imreach.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/c_console/1.png" alt="C-Sharp Console project screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">C-Sharp Final Project 2024</span>
+                            </div>
+                            <h3>C-Sharp Console</h3>
+                            <p>C-Sharp Console is a final project that focuses on creating a command-line application using C# programming language.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/csharp.png" alt="C#" loading="lazy">
+                            </div>
+                            <a class="project-action" href="projects/csharp-console.html">View Details</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="uiux-grid hidden">
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/UIUX/Gvote/1.JPG" alt="Gvote UI/UX design screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">UI/UX Design</span>
+                            </div>
+                            <h3>Gvote</h3>
+                            <p>Gvote is a voting platform UI/UX concept with a modern design, intuitive navigation, and responsive layout for seamless user engagement.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/figma.png" alt="Figma" loading="lazy">
+                                
+                            </div>
+                            <a class="project-action" href="UI/UXdesigns/gvote.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/UIUX/Beeble/1.JPG" alt="Beeble UI/UX design screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">UI/UX Design</span>
+                            </div>
+                            <h3>Beeble</h3>
+                            <p>Beeble is a mobile UI/UX design concept for a learning app that engages children through environmental trivia, playful interactions, and colorful visuals.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/figma.png" alt="Figma" loading="lazy">
+                              
+                            </div>
+                            <a class="project-action" href="UI/UXdesigns/beeble.html">View Details</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__image">
+                            <img src="images/UIUX/Dueit/1.JPG" alt="Due It UI/UX design screenshot" loading="lazy">
+                        </div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta">
+                                <span class="project-badge">UI/UX Design</span>
+                            </div>
+                            <h3>Due It</h3>
+                            <p>Due It is a task management UI/UX concept with a clean layout, clear action hierarchy, and user-friendly mobile screens for productivity workflows.</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/figma.png" alt="Figma" loading="lazy">
+                                
+                            </div>
+                            <a class="project-action" href="UI/UXdesigns/dueit.html">View Details</a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="certificates-section">
+            <div class="section-container">
+                <div class="certificates-header">
+                    <div>
+                        <h2>Certificates</h2>
+                        <p class="section-description">A collection of certifications that reflect my commitment to continuous learning, professional growth, and expanding my technical expertise.</p>
+                    </div>
+                    <div class="certificates-tabs" role="tablist" aria-label="Certificate categories">
+                        <button type="button" class="certificates-tab active" data-category="national">National Certificate</button>
+                        <button type="button" class="certificates-tab" data-category="cisco">Cisco Free Certificates</button>
+                        <button type="button" class="certificates-tab" data-category="gaming">Gaming Certificates</button>
+                        <button type="button" class="certificates-tab" data-category="leadership">Leadership</button>
+                        <button type="button" class="certificates-tab" data-category="seminars">Seminars</button>
+                    </div>
+                </div>
+
+                <div class="certificates-list">
+                    <article class="certificate-item" data-category="national">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/national%20certificate/CSS.jfif" alt="NC II Computer System and Servicing certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>NC II - Computer System and Servicing</h3>
+                            <span>2023 - 2028</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="cisco">
+                        <div class="certificate-item__image certificate-item__image--placeholder">
+                            <img src="images/certificates/cisco_free_certificates/1.JPG" alt="Introduction to Cybersecurity certificate">   
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Introduction to Cybersecurity</h3>
+                            <span>PDF Certificate</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="gaming">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/GamingCertificates/CODM_Certificate.png" alt="Certificate of achievement for CODM tournament">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Call of Duty Mobile Certificate</h3>
+                            <span>Digital Giants Esports Club</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="leadership">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/Leadership/ITSL_Leadership.JPG" alt="Certificate of Leadership">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>ITSL Deputy Officer - Certificate of Leadership</h3>
+                            <span>May 8, 2025</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="seminars">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/seminars/Lucky%20Marco%20C.%20Lunas_ALIVE_Participation_Certificate_page-0001.jpg" alt="ALIVE alumni link-in virtual engagement certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>ALIVE: Alumni Link-In Virtual Engagement</h3>
+                            <span>March 14, 2025</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="seminars">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/seminars/Lucky%20Marco%20C.%20Lunas_Code-Smarter_Not-Harder_withBossROD_ITSL2425_Webinar_page-0001.jpg" alt="Code Smarter, Not Harder webinar certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Code Smarter, Not Harder</h3>
+                            <span>February 1, 2025</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="seminars">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/seminars/Lucky%20Marco%20C.%20Lunas_CtrlAltLeadSeminar_ITSLxISSL_Seminar_page-0001.jpg" alt="Ctrl+Alt+Lead seminar certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Ctrl+Alt+Lead Seminar</h3>
+                            <span>March 11, 2025</span>
+                        </div>
+                    </article>
+
+                    <article class="certificate-item" data-category="seminars">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/seminars/LUCKY%20MARCO%20C.LUNAS%20Certificate%20of%20Attendance%20(1)_page-0001.jpg" alt="Rizal ICT Conference attendance certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Rizal ICT Conference Attendance</h3>
+                            <span>April 25, 2024</span>
+                        </div>
+                    </article>
+                    <article class="certificate-item" data-category="seminars">
+                        <div class="certificate-item__image">
+                            <img src="images/certificates/seminars/Work Smarter Not Harder.JPG" alt="Rizal ICT Conference attendance certificate">
+                        </div>
+                        <div class="certificate-item__text">
+                            <h3>Rizal ICT Conference Attendance</h3>
+                            <span>September 19, 2025</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <h2>Contact Me</h2>
+                <p class="section-description">Have a project in mind, a question, or an opportunity to collaborate? Feel free to reach out; I’d be happy to connect and discuss how we can work together.</p>
+                <div class="contact-content">
+                    <div class="contact-layout">
+                        <div class="contact-visual">
+                            <div class="photo-stack" role="button" tabindex="0" aria-label="Photo stack carousel"></div>
+                            <a href="about_me/about_me.html" class="photo-stack-hint">Read More About Me</a>
+                        </div>
+
+                        <div class="contact-details">
+                            <div class="contact-info contact-info--stacked">
+                                <div class="info-row">
+                                    <span class="info-label">Email</span>
+                                    <a class="info-detail" href="https://mail.google.com/mail/?view=cm&fs=1&to=luckymarcolunas1117@gmail.com" target="_blank" rel="noopener noreferrer">
+                                        <img src="images/email.png" alt="Email icon">
+                                        <span>luckymarcolunas1117@gmail.com</span>
+                                    </a>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Github</span>
+                                    <a class="info-detail" href="https://github.com/MarcoLucky" target="_blank" rel="noopener noreferrer">
+                                        <img src="images/Github.png" alt="GitHub icon">
+                                        <span>github.com/MarcoLucky</span>
+                                    </a>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">LinkedIn</span>
+                                    <a class="info-detail" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                                        <img src="images/skills/linkedin.png" alt="LinkedIn icon">
+                                        <span>linkedin.com</span>
+                                    </a>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Facebook</span>
+                                    <a class="info-detail" href="https://www.facebook.com/lucky.lunas.3/" target="_blank" rel="noopener noreferrer">
+                                        <img src="images/facebook.png" alt="Facebook icon">
+                                        <span>Marco Lunas</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact-actions">
+                                <a class="contact-cta" href="resume/Lunas, Lucky Marco(Resume).pdf" download="Lucky Marco Lunas Resume.pdf">Download My Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <a href="https://www.biblegateway.com/passage/?search=Colossians+3%3A23&version=NIV" target="_blank" rel="noopener noreferrer" class="footer-link footer-left">Colossians 3:23 (NIV)</a>
+            <a href="https://freevisitorcounters.com/en/home/stats/id/1608854" target="_blank" rel="noopener noreferrer" class="footer-link footer-right">© Marco Lunas 2026</a>
+        </div>
+    </footer>
+
+    <!-- Moved skill modal to document root to avoid stacking context issues -->
+    <div id="skillModal" class="skill-modal hidden" aria-hidden="true">
+        <div class="skill-modal__backdrop"></div>
+        <div class="skill-modal__content" role="dialog" aria-modal="true" aria-labelledby="skillModalTitle">
+            <button type="button" class="skill-modal__close" aria-label="Close skill details">×</button>
+            <div class="skill-modal__image">
+                <img src="" alt="" loading="lazy">
+            </div>
+            <div class="skill-modal__body">
+                <h3 id="skillModalTitle"></h3>
+                <p class="skill-modal__subtitle">How I Can Utilize this</p>
+                <div class="skill-modal__description"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lucky-chatbot" aria-live="polite">
+
+        <div class="lucky-chatbot__window" role="dialog" aria-label="Lucky AI chatbot">
+                <div class="lucky-chatbot__header">
+                    <div class="lucky-chatbot__identity">
+                        <div class="lucky-chatbot__avatar">
+                            <img src="images/mypicture.png" alt="Marco AI avatar" class="lucky-chatbot__avatar-img">
+                        </div>
+                        <div class="lucky-chatbot__title-block">
+                            <div class="lucky-chatbot__title">Marco AI</div>
+                            <div class="lucky-chatbot__subtitle">Ask me anything about Marco.</div>
+                        </div>
+                    </div>
+                    <button class="lucky-chatbot__clear" type="button">Clear</button>
+                </div>
+
+            <div class="lucky-chatbot__messages"></div>
+
+            <div class="lucky-chatbot__suggestions">
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Tell me about yourself">Tell me about yourself</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="What are your skills?">What are your skills?</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Show your projects">Show your projects</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Education">Education</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Experience">Experience</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="What are you learning?">What are you learning?</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="What is your goal?">What is your goal?</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Contact information">Contact information</button>
+                <button class="lucky-chatbot__chip" type="button" data-prompt="Download resume">Download resume</button>
+            </div>
+
+            <div class="lucky-chatbot__composer">
+                <input class="lucky-chatbot__input" type="text" placeholder="Ask Marco AI..." aria-label="Ask Marco AI" />
+                <button class="lucky-chatbot__send" type="button" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13"></path>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <button class="lucky-chatbot__toggle" type="button" aria-label="Open Lucky AI chatbot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
