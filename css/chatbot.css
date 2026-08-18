@@ -267,31 +267,7 @@ body:not(.home-page) .music-toggle {
 }
 
 .lucky-chatbot__bubble-time {
-    font-size: 0.68rem;
-    opacity: 0.7;
-}
-
-.lucky-chatbot__suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0 1rem 0.8rem;
-}
-
-.lucky-chatbot__chip {
-    border: 1px solid var(--border-color, rgba(0,0,0,0.12));
-    background: var(--bg-secondary, rgba(255,255,255,0.95));
-    color: var(--accent-color, #4d6cff);
-    padding: 0.45rem 0.7rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: transform 180ms ease, background-color 180ms ease;
-}
-
-.lucky-chatbot__chip:hover {
-    transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.96);
+    display: none;
 }
 
 .lucky-chatbot__composer {
@@ -393,12 +369,6 @@ body.dark-mode .lucky-chatbot__bubble--bot {
     background: rgba(31, 41, 55, 0.86);
     color: #f8fafc;
     border-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .lucky-chatbot__chip {
-    background: var(--bg-secondary, rgba(17,24,39,0.9));
-    color: var(--text-primary, #dbeafe);
-    border-color: rgba(96, 165, 250, 0.12);
 }
 
 body.dark-mode .lucky-chatbot__composer {

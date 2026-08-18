@@ -582,7 +582,11 @@ body.dark-mode .theme-icon.sun-icon {
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-standard);
+    transition: transform var(--transition-standard),
+                box-shadow var(--transition-standard),
+                background-color var(--transition-standard),
+                color var(--transition-standard),
+                border-color var(--transition-standard);
     font-family: 'Roboto Flex', sans-serif;
     letter-spacing: 0.5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -1023,6 +1027,14 @@ section h2 {
     justify-content: flex-end;
 }
 
+.projects-header-main h2 {
+    margin: 0;
+}
+
+.section-switch.responsive-section-switch {
+    display: none;
+}
+
 .certificates-header {
     display: flex;
     justify-content: space-between;
@@ -1451,6 +1463,11 @@ section h2 {
     background: var(--bg-secondary);
 }
 
+.switch-option.active {
+    background: var(--bg-secondary);
+    font-weight: 700;
+}
+
 /* Hidden utility */
 .hidden { display: none !important; }
 
@@ -1760,14 +1777,14 @@ section h2 {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .experience-header-main,
     .projects-header-main {
         align-items: center;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 0.75rem;
+        justify-content: flex-start;
+        gap: 0.6rem;
     }
 
     .experience-header-main h2,
@@ -1777,25 +1794,13 @@ section h2 {
 
     .experience-tabs,
     .projects-tabs {
-        flex: 1 1 auto;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        min-width: 0;
-        max-width: calc(100% - 7rem);
-        overflow-x: auto;
-        padding-bottom: 0.15rem;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .experience-tabs::-webkit-scrollbar,
-    .projects-tabs::-webkit-scrollbar {
         display: none;
     }
 
-    .experience-tab,
-    .projects-tab {
+    .section-switch.responsive-section-switch {
+        display: inline-block;
         flex: 0 0 auto;
+        margin-left: 0;
     }
 
     .experience-card {

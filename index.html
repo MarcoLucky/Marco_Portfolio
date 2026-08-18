@@ -122,6 +122,16 @@
                             <button type="button" class="experience-tab skill-filter-btn" role="tab" aria-selected="false" aria-controls="educationItems" data-target="education">Education</button>
                             <button type="button" class="experience-tab skill-filter-btn" role="tab" aria-selected="false" aria-controls="eventsItems" data-target="events">Events</button>
                         </div>
+                        <div class="section-switch responsive-section-switch">
+                            <button id="experienceMobileSwitchBtn" class="switch-button" aria-expanded="false" aria-haspopup="true" aria-controls="experienceMobileSwitchMenu" aria-label="Switch experience view">
+                                <svg class="switch-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <ul id="experienceMobileSwitchMenu" class="switch-menu hidden" role="menu">
+                                <li class="switch-option experience-switch-option" role="menuitem" data-target="experience">Experience</li>
+                                <li class="switch-option experience-switch-option" role="menuitem" data-target="education">Education</li>
+                                <li class="switch-option experience-switch-option" role="menuitem" data-target="events">Events</li>
+                            </ul>
+                        </div>
                     </div>
                     <p id="sectionDescription">A collection of the experiences and milestones that have shaped my growth, strengthened my technical abilities, and deepened my passion for technology.</p>
                 </div>
@@ -433,6 +443,15 @@
                         <div class="projects-tabs" role="tablist" aria-label="Project section views">
                             <button type="button" class="projects-tab skill-filter-btn active" role="tab" aria-selected="true" aria-controls="projectsGrid" data-target="projects">Projects</button>
                             <button type="button" class="projects-tab skill-filter-btn" role="tab" aria-selected="false" aria-controls="uiuxGrid" data-target="uiux">UI/UX Designs</button>
+                        </div>
+                        <div class="section-switch responsive-section-switch">
+                            <button id="projectsMobileSwitchBtn" class="switch-button" aria-expanded="false" aria-haspopup="true" aria-controls="projectsMobileSwitchMenu" aria-label="Switch project view">
+                                <svg class="switch-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <ul id="projectsMobileSwitchMenu" class="switch-menu hidden" role="menu">
+                                <li class="switch-option projects-switch-option" role="menuitem" data-target="projects">Projects</li>
+                                <li class="switch-option projects-switch-option" role="menuitem" data-target="uiux">UI/UX Designs</li>
+                            </ul>
                         </div>
                     </div>
                     <p id="projectsSectionDescription" class="projects-intro">A collection of academic and personal projects that reflect my experience in designing, developing, and delivering functional web applications.</p>
@@ -823,19 +842,6 @@
                 </div>
 
             <div class="lucky-chatbot__messages"></div>
-
-            <div class="lucky-chatbot__suggestions">
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Who is Marco?">Who is Marco?</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Tell me about yourself">Tell me about yourself</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="What are your skills?">What are your skills?</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Show your projects">Show your projects</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Education">Education</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Experience">Experience</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="What are you learning?">What are you learning?</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="What is your goal?">What is your goal?</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Contact information">Contact information</button>
-                <button class="lucky-chatbot__chip" type="button" data-prompt="Download resume">Download resume</button>
-            </div>
 
             <div class="lucky-chatbot__composer">
                 <input class="lucky-chatbot__input" type="text" placeholder="Ask Marco AI..." aria-label="Ask Marco AI" />

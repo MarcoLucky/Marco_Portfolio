@@ -118,19 +118,6 @@ function initializeFloatingControls() {
 
                 <div class="lucky-chatbot__messages"></div>
 
-                <div class="lucky-chatbot__suggestions">
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Who is Marco?">Who is Marco?</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Tell me about yourself">Tell me about yourself</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="What are your skills?">What are your skills?</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Show your projects">Show your projects</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Education">Education</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Experience">Experience</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="What are you learning?">What are you learning?</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="What is your goal?">What is your goal?</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Contact information">Contact information</button>
-                    <button class="lucky-chatbot__chip" type="button" data-prompt="Download resume">Download resume</button>
-                </div>
-
                 <div class="lucky-chatbot__composer">
                     <input class="lucky-chatbot__input" type="text" placeholder="Ask Marco AI..." aria-label="Ask Marco AI" />
                     <button class="lucky-chatbot__send" type="button" aria-label="Send message">
@@ -989,34 +976,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const resumeBtn = document.querySelector('.resume-btn');
     
     if (resumeBtn) {
-        // Hover animation
-        resumeBtn.addEventListener('mouseenter', function() {
-            this.style.letterSpacing = '1px';
-        });
-        
-        resumeBtn.addEventListener('mouseleave', function() {
-            this.style.letterSpacing = '0.5px';
-        });
-        
-        // Click animation
         resumeBtn.addEventListener('click', function(e) {
             if (this.tagName !== 'A') {
                 e.preventDefault();
             }
-            
-            // Add click animation
-            this.style.animation = 'buttonClick 0.4s ease-out';
-            
-            setTimeout(() => {
-                this.style.animation = 'none';
-            }, 400);
-            
-            console.log('Resume button clicked');
-        });
-        
-        // Ripple effect
-        resumeBtn.addEventListener('click', function(e) {
-            createRipple.call(this, e);
         });
     }
 });
@@ -1306,6 +1269,9 @@ console.log('Portfolio initialized successfully');
 // Section tabs: swap Experience, Events, and Education views
 (function() {
     const sectionTabs = document.querySelectorAll('.experience-tab');
+    const mobileSwitchBtn = document.getElementById('experienceMobileSwitchBtn');
+    const mobileSwitchMenu = document.getElementById('experienceMobileSwitchMenu');
+    const mobileSwitchOptions = mobileSwitchMenu ? mobileSwitchMenu.querySelectorAll('.experience-switch-option') : [];
     const expItems = document.querySelector('.experience-items');
     const eventItems = document.querySelector('.events-items');
     const eduItems = document.querySelector('.education-items');
@@ -1341,6 +1307,10 @@ console.log('Portfolio initialized successfully');
             tab.setAttribute('aria-selected', String(isActive));
             tab.tabIndex = isActive ? 0 : -1;
         });
+
+        mobileSwitchOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.target === target);
+        });
     }
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -1371,6 +1341,30 @@ console.log('Portfolio initialized successfully');
             showSectionView(tabs[nextIndex].dataset.target);
         });
     });
+
+    if (mobileSwitchBtn && mobileSwitchMenu) {
+        mobileSwitchBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = !mobileSwitchMenu.classList.contains('hidden');
+            mobileSwitchMenu.classList.toggle('hidden', isOpen);
+            mobileSwitchBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        mobileSwitchOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                showSectionView(option.dataset.target);
+                mobileSwitchMenu.classList.add('hidden');
+                mobileSwitchBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (mobileSwitchMenu.classList.contains('hidden')) return;
+            if (mobileSwitchMenu.contains(event.target) || mobileSwitchBtn.contains(event.target)) return;
+            mobileSwitchMenu.classList.add('hidden');
+            mobileSwitchBtn.setAttribute('aria-expanded', 'false');
+        });
+    }
 })();
 
 // Projects reveal: show the two newest cards first, then toggle the rest.
@@ -1408,6 +1402,9 @@ console.log('Portfolio initialized successfully');
 // Projects tabs: swap Projects <-> UI/UX views
 (function() {
     const projectTabs = document.querySelectorAll('.projects-tab');
+    const mobileSwitchBtn = document.getElementById('projectsMobileSwitchBtn');
+    const mobileSwitchMenu = document.getElementById('projectsMobileSwitchMenu');
+    const mobileSwitchOptions = mobileSwitchMenu ? mobileSwitchMenu.querySelectorAll('.projects-switch-option') : [];
     const projectsGrid = document.querySelector('.projects-grid');
     const uiuxGrid = document.querySelector('.uiux-grid');
     const projectActionGroups = document.querySelectorAll('.projects-actions[data-actions-for]');
@@ -1440,6 +1437,10 @@ console.log('Portfolio initialized successfully');
             tab.setAttribute('aria-selected', String(isActive));
             tab.tabIndex = isActive ? 0 : -1;
         });
+
+        mobileSwitchOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.target === target);
+        });
     }
 
     projectTabs.forEach(tab => {
@@ -1458,6 +1459,30 @@ console.log('Portfolio initialized successfully');
             showProjectsView(tabs[nextIndex].dataset.target);
         });
     });
+
+    if (mobileSwitchBtn && mobileSwitchMenu) {
+        mobileSwitchBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = !mobileSwitchMenu.classList.contains('hidden');
+            mobileSwitchMenu.classList.toggle('hidden', isOpen);
+            mobileSwitchBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        mobileSwitchOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                showProjectsView(option.dataset.target);
+                mobileSwitchMenu.classList.add('hidden');
+                mobileSwitchBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (mobileSwitchMenu.classList.contains('hidden')) return;
+            if (mobileSwitchMenu.contains(event.target) || mobileSwitchBtn.contains(event.target)) return;
+            mobileSwitchMenu.classList.add('hidden');
+            mobileSwitchBtn.setAttribute('aria-expanded', 'false');
+        });
+    }
 
     const projectsUrlParams = new URLSearchParams(window.location.search);
     showProjectsView(projectsUrlParams.get('view') === 'uiux' ? 'uiux' : 'projects');

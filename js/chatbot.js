@@ -16,7 +16,6 @@ function initLuckyChatbot() {
     const inputEl = chatbot.querySelector('.lucky-chatbot__input');
     const sendBtn = chatbot.querySelector('.lucky-chatbot__send');
     const clearBtn = chatbot.querySelector('.lucky-chatbot__clear');
-    const chips = chatbot.querySelectorAll('.lucky-chatbot__chip');
 
     const state = {
         isOpen: false,
@@ -315,12 +314,6 @@ function initLuckyChatbot() {
         if (state.isOpen) {
             pushMessage(responses.greeting[0], 'bot');
         }
-    });
-
-    chips.forEach((chip) => {
-        chip.addEventListener('click', () => {
-            sendMessage(chip.dataset.prompt || chip.textContent);
-        });
     });
 
     document.addEventListener('click', (event) => {
