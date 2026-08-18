@@ -44,8 +44,13 @@ function initLuckyChatbot() {
     }
 
     const responses = {
+        identity: [
+            'Marco C. Lunas, also known as Lucky Marco, is an IT student and aspiring software developer focused on building functional, user-centered digital solutions.',
+            'His portfolio highlights web systems, UI/UX designs, certificates, events, and current work like Tracktern, a 2026 personal OJT Tracking System project.'
+        ],
         about: [
             'Lucky Marco is an IT student who enjoys turning ideas into functional, user-centered digital experiences. He is passionate about modern design, problem-solving, and building meaningful solutions with code.',
+            'He studies at the University of Rizal System - Binangonan and continues to grow through academic projects, personal projects, hackathons, certificates, and hands-on work.',
             'He is driven by creativity, continuous learning, and the desire to create projects that are both practical and impactful.'
         ],
         education: [
@@ -59,13 +64,30 @@ function initLuckyChatbot() {
             'Lucky Marco is experienced with HTML, CSS, JavaScript, PHP, Laravel, MySQL, Bootstrap, Tailwind, C#, Kodular, Figma, and AI-assisted tools such as ChatGPT, Claude, and Gemini.'
         ],
         projects: [
-            'Some of his notable projects include G! Vote, InfoTranSys, Beeble, ImReach, and a C# console application. These projects highlight his growth in web development, app development, and design.'
+            'His recent projects include Tracktern, a 2026 personal OJT Tracking System that is currently in progress, and G! Vote, a web-based digital voting system.',
+            'Other portfolio projects include InfoTranSys, Beeble, ImReach, and a C# console application, showing his growth in web development, app development, and design.'
+        ],
+        tracktern: [
+            'Tracktern is Marco\'s 2026 personal project. It is an OJT Tracking System and is currently being worked on.'
+        ],
+        gvote: [
+            'G! Vote is Marco\'s capstone project for 2025-2026. It is a web-based digital voting system designed for University of Rizal System Binangonan.'
+        ],
+        infotransys: [
+            'InfoTranSys is a web-based transaction system made to improve long queue concerns in the University Cashier and Dean\'s Offices.'
+        ],
+        beeble: [
+            'Beeble is an interactive mobile learning application for children under 10, focused on nature and environmental learning through engaging activities.'
+        ],
+        certificates: [
+            'Marco has certificates related to computer systems servicing, cybersecurity, leadership, seminars, and gaming events. These support his continuous learning and professional growth.'
         ],
         hackathon: [
             'Lucky Marco joined the Startup QC Student Competition and the eGov Hackathon, where he gained valuable experience working on real-world ideas, collaboration, and innovation.'
         ],
         immersion: [
-            'During his work immersion, he explored practical IT workflows, teamwork, and professional exposure that helped strengthen his technical and communication skills.'
+            'Marco\'s experience includes working as a Full Stack Developer at CertiCode, serving as a Student Assistant at the University Cashier Office, and completing work immersion at Capellan Institute of Technology.',
+            'These experiences strengthened his technical skills, communication, teamwork, and understanding of real professional workflows.'
         ],
         languages: [
             'His programming language experience includes HTML, CSS, JavaScript, PHP, C#, and SQL.'
@@ -101,7 +123,7 @@ function initLuckyChatbot() {
             'You can download his resume from the contact section of this portfolio. It contains his background, experience, and skills.'
         ],
         greeting: [
-            "Hi! I'm Marco AI. I can answer questions about Marco's skills, projects, education, experience, hobbies, and contact information. Try asking me something!"
+            "Hi! I'm Marco AI. I can answer questions about Marco's background, skills, projects, education, experience, certificates, events, hobbies, and contact information."
         ]
     };
 
@@ -120,10 +142,13 @@ function initLuckyChatbot() {
     function appendBubble(text, sender, time) {
         const bubble = document.createElement('div');
         bubble.className = `lucky-chatbot__bubble lucky-chatbot__bubble--${sender}`;
-        bubble.innerHTML = `
-            <div class="lucky-chatbot__bubble-text">${text}</div>
-            <div class="lucky-chatbot__bubble-time">${time}</div>
-        `;
+        const textEl = document.createElement('div');
+        textEl.className = 'lucky-chatbot__bubble-text';
+        textEl.textContent = text;
+        const timeEl = document.createElement('div');
+        timeEl.className = 'lucky-chatbot__bubble-time';
+        timeEl.textContent = time;
+        bubble.append(textEl, timeEl);
         messagesEl.appendChild(bubble);
     }
 
@@ -170,6 +195,10 @@ function initLuckyChatbot() {
 
         if (!cleaned) return null;
 
+        if (/(who'?s marco|who is marco|about marco|marco lunas|lucky marco|who is lucky|who is lucky marco)/.test(cleaned)) {
+            return responses.identity.join(' ');
+        }
+
         if (/(who are you|introduce yourself|tell me about yourself|about you|yourself)/.test(cleaned)) {
             return responses.about.join(' ');
         }
@@ -180,6 +209,26 @@ function initLuckyChatbot() {
 
         if (/(skill|skills|tech stack|technology|technologies|programming language|programming languages|stack)/.test(cleaned)) {
             return responses.skills.join(' ');
+        }
+
+        if (/(tracktern|ojt tracking|ojt system|tracking system)/.test(cleaned)) {
+            return responses.tracktern.join(' ');
+        }
+
+        if (/(g! vote|gvote|g vote|voting system)/.test(cleaned)) {
+            return responses.gvote.join(' ');
+        }
+
+        if (/(infotransys|transaction system|queue|cashier)/.test(cleaned)) {
+            return responses.infotransys.join(' ');
+        }
+
+        if (/(beeble|mobile learning|learning app|children)/.test(cleaned)) {
+            return responses.beeble.join(' ');
+        }
+
+        if (/(certificate|certificates|certification|certifications|seminar|leadership|cybersecurity|css nc ii|nc ii)/.test(cleaned)) {
+            return responses.certificates.join(' ');
         }
 
         if (/(project|projects|portfolio|works|work|show your projects)/.test(cleaned)) {
@@ -235,13 +284,8 @@ function initLuckyChatbot() {
         pushMessage(text, 'user');
         inputEl.value = '';
 
-        const typing = showTypingIndicator();
-
-        window.setTimeout(() => {
-            removeTypingIndicator();
-            const reply = getReply(text);
-            pushMessage(reply, 'bot');
-        }, 850);
+        const reply = getReply(text);
+        pushMessage(reply, 'bot');
     }
 
     toggle.addEventListener('click', () => {

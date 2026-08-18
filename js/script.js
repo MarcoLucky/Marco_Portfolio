@@ -119,6 +119,7 @@ function initializeFloatingControls() {
                 <div class="lucky-chatbot__messages"></div>
 
                 <div class="lucky-chatbot__suggestions">
+                    <button class="lucky-chatbot__chip" type="button" data-prompt="Who is Marco?">Who is Marco?</button>
                     <button class="lucky-chatbot__chip" type="button" data-prompt="Tell me about yourself">Tell me about yourself</button>
                     <button class="lucky-chatbot__chip" type="button" data-prompt="What are your skills?">What are your skills?</button>
                     <button class="lucky-chatbot__chip" type="button" data-prompt="Show your projects">Show your projects</button>
@@ -646,7 +647,7 @@ function initializeContactStackCarousel() {
  * Initialize skill category filter buttons.
  */
 function initializeSkillFilters() {
-    const filterButtons = document.querySelectorAll('.skill-filter-btn');
+    const filterButtons = document.querySelectorAll('.skills-filter .skill-filter-btn');
     const skillsGrid = document.querySelector('.skills-grid');
     if (!filterButtons.length || !skillsGrid) return;
 
@@ -1302,18 +1303,16 @@ function initializeHeroPhotoCarousel() {
 
 console.log('Portfolio initialized successfully');
 
-// Section switcher: swap Experience, Events, and Education views
+// Section tabs: swap Experience, Events, and Education views
 (function() {
-    const switchBtn = document.getElementById('sectionSwitchBtn');
-    const switchMenu = document.getElementById('sectionSwitchMenu');
-    const switchOptions = switchMenu ? switchMenu.querySelectorAll('.switch-option') : [];
+    const sectionTabs = document.querySelectorAll('.experience-tab');
     const expItems = document.querySelector('.experience-items');
     const eventItems = document.querySelector('.events-items');
     const eduItems = document.querySelector('.education-items');
     const sectionTitle = document.getElementById('sectionTitle');
     const sectionDescription = document.getElementById('sectionDescription');
 
-    if (!switchBtn || !switchMenu || !expItems || !eventItems || !eduItems || !sectionTitle || !sectionDescription) return;
+    if (!sectionTabs.length || !expItems || !eventItems || !eduItems || !sectionTitle || !sectionDescription) return;
 
     function showSectionView(target) {
         if (target === 'education') {
@@ -1335,6 +1334,13 @@ console.log('Portfolio initialized successfully');
             sectionTitle.textContent = 'Experience';
             sectionDescription.textContent = 'A collection of the experiences and milestones that have shaped my growth, strengthened my technical abilities, and deepened my passion for technology.';
         }
+
+        sectionTabs.forEach(tab => {
+            const isActive = tab.dataset.target === target;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', String(isActive));
+            tab.tabIndex = isActive ? 0 : -1;
+        });
     }
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -1349,52 +1355,66 @@ console.log('Portfolio initialized successfully');
         showSectionView('experience');
     }
 
-    // Toggle menu
-    switchBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isOpen = !switchMenu.classList.contains('hidden');
-        if (isOpen) {
-            switchMenu.classList.add('hidden');
-            switchBtn.setAttribute('aria-expanded', 'false');
-        } else {
-            switchMenu.classList.remove('hidden');
-            switchBtn.setAttribute('aria-expanded', 'true');
-        }
-    });
+    sectionTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            showSectionView(tab.dataset.target);
+        });
 
-    // Close when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!switchMenu.classList.contains('hidden')) {
-            if (!switchMenu.contains(e.target) && !switchBtn.contains(e.target)) {
-                switchMenu.classList.add('hidden');
-                switchBtn.setAttribute('aria-expanded', 'false');
-            }
-        }
-    });
-
-    // Option click
-    switchOptions.forEach(opt => {
-        opt.addEventListener('click', function() {
-            const target = this.dataset.target;
-            showSectionView(target);
-            // close menu
-            switchMenu.classList.add('hidden');
-            switchBtn.setAttribute('aria-expanded', 'false');
+        tab.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+            event.preventDefault();
+            const tabs = Array.from(sectionTabs);
+            const currentIndex = tabs.indexOf(tab);
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const nextIndex = (currentIndex + direction + tabs.length) % tabs.length;
+            tabs[nextIndex].focus();
+            showSectionView(tabs[nextIndex].dataset.target);
         });
     });
 })();
 
-// Projects section switcher: swap Projects <-> UI/UX views
+// Projects reveal: show the two newest cards first, then toggle the rest.
 (function() {
-    const projBtn = document.getElementById('projectsSectionSwitchBtn');
-    const projMenu = document.getElementById('projectsSectionSwitchMenu');
-    const projOptions = projMenu ? projMenu.querySelectorAll('.switch-option') : [];
+    const toggles = document.querySelectorAll('.projects-toggle-more');
+    if (!toggles.length) return;
+
+    toggles.forEach(toggle => {
+        const grid = document.getElementById(toggle.dataset.grid);
+        const actions = toggle.closest('.projects-actions');
+        const extraCards = grid ? grid.querySelectorAll('.project-card--extra') : [];
+
+        if (!grid || !extraCards.length) {
+            if (actions) actions.classList.add('hidden');
+            return;
+        }
+
+        const setExpanded = (isExpanded) => {
+            extraCards.forEach(card => {
+                card.classList.toggle('is-hidden', !isExpanded);
+            });
+            toggle.textContent = isExpanded ? 'Read Less' : 'Read More';
+            toggle.setAttribute('aria-expanded', String(isExpanded));
+        };
+
+        setExpanded(false);
+
+        toggle.addEventListener('click', () => {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            setExpanded(!isExpanded);
+        });
+    });
+})();
+
+// Projects tabs: swap Projects <-> UI/UX views
+(function() {
+    const projectTabs = document.querySelectorAll('.projects-tab');
     const projectsGrid = document.querySelector('.projects-grid');
     const uiuxGrid = document.querySelector('.uiux-grid');
+    const projectActionGroups = document.querySelectorAll('.projects-actions[data-actions-for]');
     const projectsTitle = document.getElementById('projectsSectionTitle');
     const projectsDescription = document.getElementById('projectsSectionDescription');
 
-    if (!projBtn || !projMenu || !projectsGrid || !uiuxGrid || !projectsTitle || !projectsDescription) return;
+    if (!projectTabs.length || !projectsGrid || !uiuxGrid || !projectsTitle || !projectsDescription) return;
 
     function showProjectsView(target) {
         if (target === 'uiux') {
@@ -1408,45 +1428,39 @@ console.log('Portfolio initialized successfully');
             projectsTitle.textContent = 'Projects';
             projectsDescription.textContent = 'A collection of academic and personal projects that reflect my experience in designing, developing, and delivering functional web applications.';
         }
+
+        projectActionGroups.forEach(actions => {
+            const isTargetActions = actions.dataset.actionsFor === (target === 'uiux' ? 'uiuxGrid' : 'projectsGrid');
+            actions.classList.toggle('hidden', !isTargetActions);
+        });
+
+        projectTabs.forEach(tab => {
+            const isActive = tab.dataset.target === target;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', String(isActive));
+            tab.tabIndex = isActive ? 0 : -1;
+        });
     }
 
-    const projectsUrlParams = new URLSearchParams(window.location.search);
-    const initialProjectsView = projectsUrlParams.get('view');
-    if (initialProjectsView === 'uiux') {
-        showProjectsView('uiux');
-    } else {
-        showProjectsView('projects');
-    }
+    projectTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            showProjectsView(tab.dataset.target);
+        });
 
-    projBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isOpen = !projMenu.classList.contains('hidden');
-        if (isOpen) {
-            projMenu.classList.add('hidden');
-            projBtn.setAttribute('aria-expanded', 'false');
-        } else {
-            projMenu.classList.remove('hidden');
-            projBtn.setAttribute('aria-expanded', 'true');
-        }
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!projMenu.classList.contains('hidden')) {
-            if (!projMenu.contains(e.target) && !projBtn.contains(e.target)) {
-                projMenu.classList.add('hidden');
-                projBtn.setAttribute('aria-expanded', 'false');
-            }
-        }
-    });
-
-    projOptions.forEach(opt => {
-        opt.addEventListener('click', function() {
-            const target = this.dataset.target;
-            showProjectsView(target);
-            projMenu.classList.add('hidden');
-            projBtn.setAttribute('aria-expanded', 'false');
+        tab.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+            event.preventDefault();
+            const tabs = Array.from(projectTabs);
+            const currentIndex = tabs.indexOf(tab);
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const nextIndex = (currentIndex + direction + tabs.length) % tabs.length;
+            tabs[nextIndex].focus();
+            showProjectsView(tabs[nextIndex].dataset.target);
         });
     });
+
+    const projectsUrlParams = new URLSearchParams(window.location.search);
+    showProjectsView(projectsUrlParams.get('view') === 'uiux' ? 'uiux' : 'projects');
 })();
 
 /* ============================================

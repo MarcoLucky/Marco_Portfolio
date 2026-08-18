@@ -42,6 +42,15 @@
     --section-padding-inline: clamp(0.75rem, 2.5vw, 1.25rem);
     --profile-image-tablet-size: clamp(140px, 44vw, 170px);
     --profile-image-mobile-size: clamp(110px, 34vw, 140px);
+
+    /* Type scale */
+    --font-display-title: 2.625rem;
+    --font-section-title: 2rem;
+    --font-profile-subtitle: 1.75rem;
+    --font-card-title: 1.375rem;
+    --font-list-title: 1.125rem;
+    --font-body-copy: 0.9375rem;
+    --font-small-copy: 0.875rem;
 }
 
 /* Dark Mode */
@@ -469,12 +478,12 @@ body.dark-mode .theme-icon.sun-icon {
 }
 
 .profile-name {
-    font-size: 36px;
-    font-weight: 400;
+    font-size: var(--font-display-title);
+    font-weight: 700;
     color: var(--text-primary);
-    line-height: 1.2;
+    line-height: 1.15;
     margin: 0;
-    letter-spacing: -0.3px;
+    letter-spacing: 0;
 }
 
 .verified-badge {
@@ -542,18 +551,18 @@ body.dark-mode .theme-icon.sun-icon {
 
 /* Tagline */
 .profile-tagline {
-    font-size: 46px;
-    font-weight: 700;
+    font-size: var(--font-profile-subtitle);
+    font-weight: 600;
     color: var(--text-primary);
     font-style: italic;
-    line-height: 1.4;
-    letter-spacing: -0.5px;
+    line-height: 1.35;
+    letter-spacing: 0;
     margin-bottom: 0.3rem;
 }
 
 /* Bio */
 .profile-bio {
-    font-size: 15px;
+    font-size: var(--font-body-copy);
     color: var(--text-secondary);
     line-height: 1.8;
     max-width: 650px;
@@ -613,8 +622,10 @@ section {
 }
 
 section h2 {
-    font-size: 28px;
-    font-weight: 700; /* match Skills and Experience headings */
+    font-size: var(--font-section-title);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -773,6 +784,17 @@ section h2 {
 }
 .site-footer .footer-left {
     font-style: italic;
+}
+
+.visitor-counter-frame {
+    position: absolute;
+    left: -9999px;
+    bottom: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .contact-details {
@@ -984,6 +1006,23 @@ section h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.projects-header-main {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.projects-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .certificates-header {
     display: flex;
     justify-content: space-between;
@@ -1153,6 +1192,10 @@ section h2 {
     flex-direction: column;
 }
 
+.project-card.is-hidden {
+    display: none;
+}
+
 .project-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 32px 76px rgba(0, 0, 0, 0.12);
@@ -1208,14 +1251,15 @@ section h2 {
 }
 
 .project-card h3 {
-    font-size: 1.6rem;
+    font-size: var(--font-card-title);
+    line-height: 1.25;
+    letter-spacing: 0;
     margin: 0;
 }
 
 .project-card p {
     color: var(--text-secondary);
     line-height: 1.6;
-    flex: 1;
     margin: 0;
 }
 
@@ -1257,6 +1301,51 @@ section h2 {
     transform: translateY(-1px);
 }
 
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: auto;
+    align-self: flex-end;
+    color: var(--text-secondary);
+    font-size: var(--font-small-copy);
+    font-weight: 700;
+}
+
+.project-status--working {
+    color: #0077cc;
+}
+
+.projects-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+}
+
+.projects-toggle-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 136px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--radius-md);
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform var(--transition-fast), background-color var(--transition-standard), color var(--transition-standard);
+}
+
+.projects-toggle-more:hover {
+    transform: translateY(-2px);
+    background: transparent;
+    color: var(--accent-color);
+}
+
 .experience-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1270,17 +1359,17 @@ section h2 {
     gap: var(--spacing-md);
 }
 
-.experience-header > div {
+.experience-header-main {
     display: flex;
     align-items: baseline;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 12px;
 }
 
 .experience-header h2 {
     margin: 0;
-    font-size: 32px;
+    font-size: var(--font-section-title);
     font-weight: 700;
 }
 
@@ -1295,6 +1384,24 @@ section h2 {
 .experience-items {
     display: grid;
     gap: var(--spacing-xl);
+}
+
+.experience-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.experience-tab {
+    line-height: 1;
+}
+
+.experience-tab:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
 }
 
 /* Section switch dropdown */
@@ -1401,7 +1508,7 @@ section h2 {
 }
 
 .education-degree {
-    font-size: 18px;
+    font-size: var(--font-list-title);
     font-weight: 700;
     margin: 0;
     color: var(--text-primary);
@@ -1453,7 +1560,7 @@ section h2 {
 }
 
 .experience-role {
-    font-size: 18px;
+    font-size: var(--font-list-title);
     font-weight: 700;
     margin: 0;
     color: var(--text-primary);
@@ -1565,10 +1672,6 @@ section h2 {
         grid-template-columns: minmax(110px, 160px) 1fr;
     }
 
-    .experience-header h2 {
-        font-size: 28px;
-    }
-
     .experience-logo {
         width: 28px;
         height: 28px;
@@ -1614,7 +1717,7 @@ section h2 {
 }
 
 .experience-title {
-    font-size: 18px;
+    font-size: var(--font-list-title);
     font-weight: 700;
     margin: 0;
     color: var(--text-primary);
@@ -1657,9 +1760,42 @@ section h2 {
     }
 }
 
-@media (max-width: 600px) {
-    .experience-header {
-        flex-direction: column;
+@media (max-width: 900px) {
+    .experience-header-main,
+    .projects-header-main {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0.75rem;
+    }
+
+    .experience-header-main h2,
+    .projects-header-main h2 {
+        flex: 0 0 auto;
+    }
+
+    .experience-tabs,
+    .projects-tabs {
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        min-width: 0;
+        max-width: calc(100% - 7rem);
+        overflow-x: auto;
+        padding-bottom: 0.15rem;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .experience-tabs::-webkit-scrollbar,
+    .projects-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .experience-tab,
+    .projects-tab {
+        flex: 0 0 auto;
     }
 
     .experience-card {
@@ -1759,13 +1895,13 @@ section h2 {
     }
 
     .profile-name {
-        font-size: 28px;
-        font-weight: 400;
+        font-size: 2.125rem;
+        font-weight: 700;
     }
 
     .profile-tagline {
-        font-size: clamp(2.2rem, 7vw, 3rem);
-        line-height: 1.1;
+        font-size: 1.5rem;
+        line-height: 1.25;
     }
 
     .social-links {
@@ -1821,13 +1957,13 @@ section h2 {
     }
 
     .profile-name {
-        font-size: 24px;
-        font-weight: 400;
+        font-size: 1.875rem;
+        font-weight: 700;
     }
 
     .profile-tagline {
-        font-size: clamp(2.35rem, 8vw, 2.9rem);
-        font-weight: 700;
+        font-size: 1.375rem;
+        font-weight: 600;
     }
 
     .profile-bio {
@@ -1938,10 +2074,12 @@ section h2 {
 }
 
 .skills-header h2 {
-    font-size: 32px;
+    font-size: var(--font-section-title);
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: 0;
 }
 
 .skills-header p {
@@ -2203,7 +2341,7 @@ body.modal-open {
 
 .skill-modal__body h3 {
     margin: 0;
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: var(--font-card-title);
     color: var(--text-primary);
     text-align: center;
 }
@@ -2402,7 +2540,7 @@ body.modal-open {
     section h2,
     .skills-header h2,
     .experience-header h2 {
-        font-size: 26px;
+        font-size: 1.625rem;
     }
 
     .skills-header p,
