@@ -230,7 +230,7 @@ function initializeMusicControl() {
         }
     }
 
-    const musicFileName = 'Justin Bieber - Confident ft. Chance The Rapper (Official Audio).mp3';
+    const musicFileName = 'Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3';
     const musicPath = window.location.pathname.includes('/about_me/') ||
         window.location.pathname.includes('/experience/') ||
         window.location.pathname.includes('/my_events/') ||

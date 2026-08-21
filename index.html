@@ -59,55 +59,51 @@
         <!-- Profile Section -->
         <section id="profile" class="profile-section active">
             <div class="profile-container">
-                <!-- Profile Image -->
-                <div class="profile-image-wrapper">
-                    <img src="images/picture.jpg" alt="Lucky Marco C. Lunas" class="profile-image" loading="eager"
-                         data-default="images/picture.jpg"
-                         data-hover="images/picture_bnw.webp"
-                         data-dark-default="images/dark_mode_picture1.jpg"
-                         data-dark-hover="images/picture3.webp"
-                         data-tooltip="picture_bnw.webp">
-                </div>
-                
+                <div class="profile-cover" aria-hidden="true"></div>
 
-                <!-- Profile Info -->
-                <div class="profile-info">
-                    <!-- Name with Badge -->
-                    <div class="name-badge-wrapper">
-                        <h1 class="profile-name">Marco C. Lunas</h1>
-                        <img src="images/check_mark.png" alt="Verified" class="verified-badge">
+                <div class="profile-content">
+                    <div class="profile-image-wrapper">
+                        <img src="images/picture.jpg" alt="Lucky Marco C. Lunas" class="profile-image" loading="eager"
+                             data-default="images/picture.jpg"
+                             data-hover="images/picture_bnw.webp"
+                             data-dark-default="images/picture.jpg"
+                             data-dark-hover="images/picture_bnw.webp"
+                             data-tooltip="picture_bnw.webp">
                     </div>
 
-                    <!-- Social Media Icons -->
-                    <div class="social-links">
-                        <a href="https://github.com/MarcoLucky" class="social-icon" title="GitHub">
-                            <img src="images/Github.png" alt="GitHub" loading="lazy">
-                        </a>
-                        <a href="https://linkedin.com" class="social-icon" title="LinkedIn">
-                            <img src="images/linked_in.png" alt="LinkedIn" loading="lazy">
-                        </a>
-                
-                        <a href="https://www.facebook.com/lucky.lunas.3/" class="social-icon" title="Facebook">
-                            <img src="images/facebook.png" alt="Facebook" loading="lazy">
-                        </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luckymarcolunas1117@gmail.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Email">
-                            <img src="images/email.png" alt="Email" loading="lazy">
-                        </a>
+                    <div class="profile-info">
+                        <div class="profile-heading-row">
+                            <div class="name-badge-wrapper">
+                                <h1 class="profile-name">Lucky Marco C. Lunas</h1>
+                                <img src="images/check_mark.png" alt="Verified" class="verified-badge">
+                            </div>
+                            <div class="profile-actions">
+                                <a href="#contact" class="resume-btn">About Me</a>
+                                <a href="resume/Lunas, Lucky Marco(Resume).pdf" class="resume-btn resume-btn-secondary" download="Lucky Marco Lunas Resume.pdf">Resume</a>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://linkedin.com" class="social-icon" title="LinkedIn">
+                                <img src="images/linked_in.png" alt="LinkedIn" loading="lazy">
+                            </a>
+                            <a href="https://github.com/MarcoLucky" class="social-icon" title="GitHub">
+                                <img src="images/Github.png" alt="GitHub" loading="lazy">
+                            </a>
+                            <a href="https://www.facebook.com/lucky.lunas.3/" class="social-icon" title="Facebook">
+                                <img src="images/facebook.png" alt="Facebook" loading="lazy">
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luckymarcolunas1117@gmail.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Email">
+                                <img src="images/email.png" alt="Email" loading="lazy">
+                            </a>
+                        </div>
+
+                        <p class="profile-bio">
+                            An IT student who focused on creating modern and reliable digital solutions that bring innovative ideas into functional, user-focused, and meaningful applications. Dedicated to build scalable systems with clean design, efficient functionality, and real world value through creativity, problem-solving, and continuous learning.
+                        </p>
+
                     </div>
-
-                    <!-- Tagline -->
-                    <h2 class="profile-tagline">"Concepts to Code"</h2>
-
-                    <!-- Bio -->
-                    <p class="profile-bio">
-                        An IT student who focused on creating modern and reliable digital solutions that bring innovative ideas into functional, user-focused, and meaningful applications. Dedicated to build scalable systems with clean design, efficient functionality, and real world value through creativity, problem-solving, and continuous learning.
-                    </p>
-
-                    <!-- About Me Button -->
-                    <a href="#contact" class="resume-btn">About Me</a>
                 </div>
-
-                
             </div>
         </section>
 
@@ -459,15 +455,24 @@
                 <div id="projectsGrid" class="projects-grid" role="tabpanel">
                     <article class="project-card">
                         <div class="project-card__image">
-                            <img src="images/1.JPG" alt="Tracktern OJT tracking system screenshot" loading="lazy">
+                            <img src="images/tracktern/1.JPG" alt="Tracktern OJT tracking system screenshot" loading="lazy">
                         </div>
                         <div class="project-card__body">
                             <div class="project-card__meta">
                                 <span class="project-badge">Personal Project 2026</span>
                             </div>
                             <h3>Tracktern</h3>
-                            <p>OJT Tracking System</p>
-                            <span class="project-status project-status--working">Currently Working</span>
+                            <p>This system is a web-based tracking and monitoring platform designed to streamline attendance logs and task management for interns and supervisors</p>
+                            <div class="project-card__icons">
+                                <img src="images/skills/laravel.png" alt="Laravel" loading="lazy">
+                                <img src="images/skills/php.png" alt="PHP" loading="lazy">
+                                <img src="images/skills/html.png" alt="HTML" loading="lazy">
+                                <img src="images/skills/css.png" alt="CSS" loading="lazy">
+                                <img src="images/skills/tailwind.webp" alt="Tailwind" loading="lazy">
+                                <img src="images/skills/javascript.png" alt="JavaScript" loading="lazy">
+                                  <img src="images/skills/mysql.png" alt="MySql" loading="lazy">
+                            </div>
+                            <span class="project-status project-status--working">Under Development</span>
                         </div>
                     </article>
                     <article class="project-card">
