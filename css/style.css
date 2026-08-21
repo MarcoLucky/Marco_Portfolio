@@ -121,7 +121,7 @@ main {
     padding: var(--spacing-md) var(--spacing-lg);
 }
 
-@media (min-width: 739px) {
+@media (min-width: 769px) {
     .navbar {
         padding-bottom: var(--spacing-sm);
     }
@@ -349,6 +349,23 @@ body:not(.home-page) .music-toggle {
     stroke-width: 2;
 }
 
+@media (min-width: 769px) {
+    .nav-wrapper .theme-toggle,
+    .nav-wrapper .music-toggle {
+        padding: 0.4rem;
+    }
+
+    .nav-wrapper .theme-toggle .theme-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .nav-wrapper .music-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
 .theme-icon.sun-icon {
     display: none;
 }
@@ -370,7 +387,6 @@ body.dark-mode .theme-icon.sun-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 80px);
 }
 
 .profile-container {
@@ -1964,6 +1980,8 @@ section h2 {
         max-width: 100%;
         aspect-ratio: 1 / 1;
         padding: clamp(0.5rem, 2vw, 0.75rem);
+        margin-top: -1rem;
+        z-index: 2;
     }
 
     .profile-image-wrapper .profile-image {
@@ -2047,6 +2065,7 @@ section h2 {
         max-width: 100%;
         aspect-ratio: 1 / 1;
         padding: clamp(0.35rem, 1.6vw, 0.6rem);
+        margin-top: -1rem;
     }
 
     .profile-image-wrapper .profile-image {
