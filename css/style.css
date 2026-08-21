@@ -1962,7 +1962,7 @@ section h2 {
 
     .profile-content {
         flex-direction: column;
-        gap: var(--spacing-xl);
+        gap: 0;
         position: relative;
         z-index: 1;
         padding-top: clamp(5rem, 18vw, 7rem);
